@@ -18,6 +18,7 @@ public class MedidaCorporal {
     }
 
     public MedidaCorporal(int codMedida, String nombreMedida, String unidadMedida) {
+        
         this.codMedida = codMedida;
         this.nombreMedida = nombreMedida;
         this.unidadMedida = unidadMedida;

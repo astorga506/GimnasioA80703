@@ -18,7 +18,9 @@ public class Ejercicio {
     public Ejercicio() {
     }
 
-    public Ejercicio(int codEjercicio, String nombreEjercicio, int codEquipo, CatergoriaEjercicio categoria) {
+    public Ejercicio(int codEjercicio, String nombreEjercicio, int codEquipo,
+            CatergoriaEjercicio categoria) {
+        
         this.codEjercicio = codEjercicio;
         this.nombreEjercicio = nombreEjercicio;
         this.codEquipo = codEquipo;

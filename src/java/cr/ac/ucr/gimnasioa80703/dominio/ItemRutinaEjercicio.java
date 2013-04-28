@@ -17,7 +17,9 @@ public class ItemRutinaEjercicio {
     public ItemRutinaEjercicio() {
     }
         
-    public ItemRutinaEjercicio(int seriesEjercicio, int repeticionesEjercicio, Ejercicio ejercicio) {
+    public ItemRutinaEjercicio(int seriesEjercicio, int repeticionesEjercicio, 
+            Ejercicio ejercicio) {
+        
         this.seriesEjercicio = seriesEjercicio;
         this.repeticionesEjercicio = repeticionesEjercicio;
         this.ejercicio = ejercicio;

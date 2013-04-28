@@ -19,7 +19,9 @@ public class Empleado {
     public Empleado() {
     }
 
-    public Empleado(int codEmpleado, String nombreEmpleado, String telefonoEmpleado, String direccionEmpleado, Rol rol) {
+    public Empleado(int codEmpleado, String nombreEmpleado, String telefonoEmpleado,
+                String direccionEmpleado, Rol rol) {
+        
         this.codEmpleado = codEmpleado;
         this.nombreEmpleado = nombreEmpleado;
         this.telefonoEmpleado = telefonoEmpleado;

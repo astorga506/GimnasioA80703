@@ -4,6 +4,8 @@
  */
 package cr.ac.ucr.gimnasioa80703.dominio;
 
+import java.sql.Date;
+
 /**
  *
  * @author Equipo
@@ -13,7 +15,7 @@ public class Cliente {
     private int codCliente;
     private String nombreCliente;
     private String apellidosCliente;
-    private String fechaNacimiento;
+    private Date fechaNacimiento;
     private String telefono;
     private String direccion;
     private String nombreContactoEmergencia;
@@ -22,7 +24,10 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(int codCliente, String nombreCliente, String apellidosCliente, String fechaNacimiento, String telefono, String direccion, String nombreContactoEmergencia, String telContactoEmergencia) {
+    public Cliente(int codCliente, String nombreCliente,String apellidosCliente,
+            Date fechaNacimiento, String telefono, String direccion,
+            String nombreContactoEmergencia, String telContactoEmergencia) {
+        
         this.codCliente = codCliente;
         this.nombreCliente = nombreCliente;
         this.apellidosCliente = apellidosCliente;
@@ -57,11 +62,11 @@ public class Cliente {
         this.apellidosCliente = apellidosCliente;
     }
 
-    public String getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 

@@ -18,7 +18,9 @@ public class DatosGimnasio {
     public DatosGimnasio() {
     }
 
-    public DatosGimnasio(String nombreGimnasio, String telefonoGimnasio, String direccion, int diasHabilesRutina) {
+    public DatosGimnasio(String nombreGimnasio, String telefonoGimnasio, String direccion, 
+            int diasHabilesRutina) {
+        
         this.nombreGimnasio = nombreGimnasio;
         this.telefonoGimnasio = telefonoGimnasio;
         this.direccion = direccion;

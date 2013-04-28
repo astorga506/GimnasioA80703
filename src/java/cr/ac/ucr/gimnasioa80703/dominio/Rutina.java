@@ -4,7 +4,7 @@
  */
 package cr.ac.ucr.gimnasioa80703.dominio;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.LinkedList;
 
 /**
@@ -25,9 +25,8 @@ public class Rutina {
     public Rutina() {
     }
 
-    public Rutina(int codRutina, Date fechaCreacion, Date fechaRenovacion,
-            String objetivoCliente, String enfermadadesCliente,
-            Cliente cliente){
+    public Rutina(int codRutina, Date fechaCreacion, Date fechaRenovacion, String objetivoCliente, 
+            String enfermadadesCliente, Cliente cliente){
         
         this.codRutina = codRutina;
         this.fechaCreacion = fechaCreacion;
@@ -43,8 +42,7 @@ public class Rutina {
         return itemesRutinaEjercicio;
     }
 
-    public void setItemesRutinaEjercicio(
-                        LinkedList<ItemRutinaEjercicio> itemesRutinaEjercicio) {
+    public void setItemesRutinaEjercicio(LinkedList<ItemRutinaEjercicio> itemesRutinaEjercicio) {
         this.itemesRutinaEjercicio = itemesRutinaEjercicio;
     }
 
@@ -52,8 +50,7 @@ public class Rutina {
         return itemesRutinaMedida;
     }
 
-    public void setItemesRutinaMedida(
-                            LinkedList<ItemRutinaMedida> itemesRutinaMedida) {
+    public void setItemesRutinaMedida(LinkedList<ItemRutinaMedida> itemesRutinaMedida) {
         this.itemesRutinaMedida = itemesRutinaMedida;
     }
 
