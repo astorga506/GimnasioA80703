@@ -6,10 +6,6 @@ package cr.ac.ucr.gimnasioa80703.dominio;
 
 import java.sql.Date;
 
-/**
- *
- * @author Equipo
- */
 public class Cliente {
     
     private int codCliente;
@@ -69,7 +65,7 @@ public class Cliente {
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
-
+    
     public String getTelefono() {
         return telefono;
     }
