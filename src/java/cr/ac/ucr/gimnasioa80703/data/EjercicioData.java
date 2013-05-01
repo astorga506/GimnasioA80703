@@ -25,7 +25,7 @@ public class EjercicioData extends BaseData{
                         + "WHERE Ejercicio.cod_categoria = Categoria.cod_categoria";
         Connection connection = this.getConnection();
         PreparedStatement statement = connection.prepareStatement(query);
-        ResultSet resultSet = statement.getResultSet();
+        ResultSet resultSet = statement.executeQuery();
         LinkedList<Ejercicio> ejercicios = new LinkedList<Ejercicio>();
         
         while(resultSet.next()){

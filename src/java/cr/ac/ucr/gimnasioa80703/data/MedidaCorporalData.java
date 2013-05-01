@@ -21,7 +21,7 @@ public class MedidaCorporalData extends BaseData{
                         + "FROM MedidaCorporal";
         Connection connection = this.getConnection();
         PreparedStatement statement = connection.prepareStatement(query);
-        ResultSet resultSet = statement.getResultSet();
+        ResultSet resultSet = statement.executeQuery();
         LinkedList<MedidaCorporal> medidasCorporales = new LinkedList<MedidaCorporal>();
         
         while(resultSet.next()){

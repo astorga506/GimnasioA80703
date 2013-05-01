@@ -24,7 +24,7 @@ public class CategoriaEjercicioData extends BaseData{
                         + "FROM CategoriaEjercicio";
         Connection connection = this.getConnection();
         PreparedStatement statement = connection.prepareStatement(query);
-        ResultSet resultSet = statement.getResultSet();
+        ResultSet resultSet = statement.executeQuery();
         LinkedList<CatergoriaEjercicio> categoriasEjercicios = new LinkedList<CatergoriaEjercicio>();
         
         while(resultSet.next()){

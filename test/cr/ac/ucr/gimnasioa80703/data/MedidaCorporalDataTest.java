@@ -34,17 +34,17 @@ public class MedidaCorporalDataTest {
         
         medidaCorporalData = new MedidaCorporalData();
         
-//        MedidaCorporal medidaCorporal = new MedidaCorporal();
+        MedidaCorporal medidaCorporal = new MedidaCorporal();
         
-//        
-//        medidaCorporal.setNombreMedida("Cadera");
-//        medidaCorporal.setUnidadMedida("cm");
+        
+        medidaCorporal.setNombreMedida("Cadera");
+        medidaCorporal.setUnidadMedida("cm");
 //        
         try {
             
-//            medidaCorporalData.insertar(medidaCorporal);
+            medidaCorporalData.insertar(medidaCorporal);
             
-           MedidaCorporal medidaCorporal = medidaCorporalData.getMedidasCorporales().getFirst();
+//           MedidaCorporal medidaCorporal = medidaCorporalData.getMedidasCorporales().getFirst();
             
             System.out.println(medidaCorporal.getNombreMedida());
             

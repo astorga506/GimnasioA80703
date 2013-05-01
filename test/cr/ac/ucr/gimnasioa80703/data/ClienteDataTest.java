@@ -5,6 +5,7 @@
 package cr.ac.ucr.gimnasioa80703.data;
 
 import cr.ac.ucr.gimnasioa80703.dominio.Cliente;
+import java.sql.Date;
 import java.sql.SQLException;
 import org.junit.After;
 import org.junit.Before;
@@ -34,10 +35,10 @@ public class ClienteDataTest {
         clienteData = new ClienteData();
         
 //        Cliente cliente = new Cliente();
-//
+
 //        cliente.setNombreCliente("Fabian");
 //        cliente.setApellidosCliente("Quiros Masis");
-//        cliente.setFechaNacimiento("1989-07-28");
+//        cliente.setFechaNacimiento(new Date(1989, 7, 28));
 //        cliente.setTelefono("87654321");
 //        cliente.setDireccion("San Rafael");
 //        cliente.setNombreContactoEmergencia("Marlon Miranda Rojas");
@@ -49,6 +50,7 @@ public class ClienteDataTest {
 
 //            clienteData.insertar(cliente);
             System.out.println(cliente.getNombreCliente());
+            System.out.println(cliente.getFechaNacimiento());
 
 
         } catch (SQLException ex) {
