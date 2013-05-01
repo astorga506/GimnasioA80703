@@ -23,6 +23,10 @@ public class Rutina {
     private LinkedList<ItemRutinaEjercicio> itemesRutinaEjercicio;
 
     public Rutina() {
+        cliente = new Cliente();
+        itemesRutinaMedida = new LinkedList<ItemRutinaMedida>();
+        itemesRutinaEjercicio = new LinkedList<ItemRutinaEjercicio>();
+        
     }
 
     public Rutina(int codRutina, Date fechaCreacion, Date fechaRenovacion, String objetivoCliente, 
@@ -33,9 +37,10 @@ public class Rutina {
         this.fechaRenovacion = fechaRenovacion;
         this.objetivoCliente = objetivoCliente;
         this.enfermadadesCliente = enfermadadesCliente;
-        this.cliente = cliente;
+        this.cliente = cliente;        
         itemesRutinaMedida = new LinkedList<ItemRutinaMedida>();
         itemesRutinaEjercicio = new LinkedList<ItemRutinaEjercicio>();
+        
     }
 
     public LinkedList<ItemRutinaEjercicio> getItemesRutinaEjercicio() {

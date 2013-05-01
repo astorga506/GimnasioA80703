@@ -34,23 +34,23 @@ public class ClienteDataTest {
         
         clienteData = new ClienteData();
         
-//        Cliente cliente = new Cliente();
+        Cliente cliente = new Cliente();
 
-//        cliente.setNombreCliente("Fabian");
-//        cliente.setApellidosCliente("Quiros Masis");
-//        cliente.setFechaNacimiento(new Date(1989, 7, 28));
-//        cliente.setTelefono("87654321");
-//        cliente.setDireccion("San Rafael");
-//        cliente.setNombreContactoEmergencia("Marlon Miranda Rojas");
-//        cliente.setTelContactoEmergencia("87654321");
+        cliente.setNombreCliente("Fabian");
+        cliente.setApellidosCliente("Quiros Masis");
+        //cliente.setFechaNacimiento();
+        cliente.setTelefono("87654321");
+        cliente.setDireccion("San Rafael");
+        cliente.setNombreContactoEmergencia("Marlon Miranda Rojas");
+        cliente.setTelContactoEmergencia("87654321");
 
         try {
 
-            Cliente cliente = clienteData.getClientes().getFirst();
+//            Cliente cliente = clienteData.getClientes().getFirst();
 
-//            clienteData.insertar(cliente);
-            System.out.println(cliente.getNombreCliente());
-            System.out.println(cliente.getFechaNacimiento());
+            clienteData.insertar(cliente);
+//            System.out.println(cliente.getNombreCliente());
+//            System.out.println(cliente.getFechaNacimiento());
 
 
         } catch (SQLException ex) {

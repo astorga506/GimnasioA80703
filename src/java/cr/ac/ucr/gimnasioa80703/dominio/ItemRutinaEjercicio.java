@@ -15,6 +15,7 @@ public class ItemRutinaEjercicio {
     private Ejercicio ejercicio;
 
     public ItemRutinaEjercicio() {
+        ejercicio = new Ejercicio();
     }
         
     public ItemRutinaEjercicio(int seriesEjercicio, int repeticionesEjercicio, 

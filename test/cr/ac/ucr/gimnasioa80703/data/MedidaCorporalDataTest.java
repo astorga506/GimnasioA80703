@@ -37,7 +37,7 @@ public class MedidaCorporalDataTest {
         MedidaCorporal medidaCorporal = new MedidaCorporal();
         
         
-        medidaCorporal.setNombreMedida("Cadera");
+        medidaCorporal.setNombreMedida("Brazos");
         medidaCorporal.setUnidadMedida("cm");
 //        
         try {

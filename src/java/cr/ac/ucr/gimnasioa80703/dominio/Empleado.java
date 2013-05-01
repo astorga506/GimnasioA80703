@@ -17,6 +17,7 @@ public class Empleado {
     private Rol rol;
         
     public Empleado() {
+        rol = new Rol();
     }
 
     public Empleado(int codEmpleado, String nombreEmpleado, String telefonoEmpleado,

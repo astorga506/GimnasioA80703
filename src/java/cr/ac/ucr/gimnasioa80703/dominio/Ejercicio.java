@@ -16,6 +16,7 @@ public class Ejercicio {
     private CatergoriaEjercicio categoria;
 
     public Ejercicio() {
+        categoria = new CatergoriaEjercicio();
     }
 
     public Ejercicio(int codEjercicio, String nombreEjercicio, int codEquipo,

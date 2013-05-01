@@ -14,6 +14,7 @@ public class ItemRutinaMedida {
     private MedidaCorporal medidaCorporal;
 
     public ItemRutinaMedida() {
+        medidaCorporal = new MedidaCorporal();
     }
 
     public ItemRutinaMedida(float valorMedida, MedidaCorporal medidaCorporal) {
