@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.util.Calendar;
 import java.util.LinkedList;
 
 /**
@@ -56,8 +57,8 @@ public class ClienteData extends BaseData{
     public Cliente insertar(Cliente cliente) throws SQLException{
         String update = "{CALL sp_insertar_cliente(?,?,?,?,?,?,?,?)}";
         Connection connection = this.getConnection();
-        CallableStatement statement = connection.prepareCall(update);      
-        
+        CallableStatement statement = connection.prepareCall(update);  
+  
         statement.registerOutParameter(1, Types.INTEGER);
         statement.setString(2, cliente.getNombreCliente());        
         statement.setString(3, cliente.getApellidosCliente());        
