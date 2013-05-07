@@ -32,7 +32,7 @@ public class RutinaData extends BaseData {
             CallableStatement statementRutina = connection.prepareCall(updateRutina);
 
             statementRutina.registerOutParameter(1, Types.INTEGER);
-            statementRutina.setDate(2, rutina.getFechaCreacion());
+            statementRutina.registerOutParameter(2, Types.DATE);
             statementRutina.registerOutParameter(3, Types.DATE);
             statementRutina.setString(4, rutina.getObjetivoCliente());
             statementRutina.setString(5, rutina.getEnfermadadesCliente());
@@ -40,7 +40,8 @@ public class RutinaData extends BaseData {
 
             statementRutina.executeUpdate();
 
-            rutina.setCodRutina(statementRutina.getInt(1));
+            rutina.setCodRutina(statementRutina.getInt(1));            
+            rutina.setFechaCreacion(statementRutina.getDate(2));
             rutina.setFechaRenovacion(statementRutina.getDate(3));
             
             for (ItemRutinaMedida itemMedidaActual : rutina.getItemesRutinaMedida()) {
