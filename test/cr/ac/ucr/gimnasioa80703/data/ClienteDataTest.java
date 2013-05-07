@@ -48,23 +48,15 @@ public class ClienteDataTest {
 
 
         clienteData = new ClienteData();
-        Cliente cliente = new Cliente();
-
-        cliente.setNombreCliente("Fabian");
-        cliente.setApellidosCliente("Quiros Masis");
-        cliente.setFechaNacimiento(javaSqlDate);
-        cliente.setTelefono("87654321");
-        cliente.setDireccion("San Rafael");
-        cliente.setNombreContactoEmergencia("Marlon Miranda Rojas");
-        cliente.setTelContactoEmergencia("87654321");
+  
 
         try {
 
-//            Cliente cliente = clienteData.getClientes().getFirst();
+            Cliente cliente = clienteData.getClientes().getFirst();
 
-            clienteData.insertar(cliente);
-//            System.out.println(cliente.getNombreCliente());
-//            System.out.println(cliente.getFechaNacimiento());
+
+            System.out.println(cliente.getNombreCliente());
+            System.out.println(cliente.getFechaNacimiento());
 
 
         } catch (SQLException ex) {

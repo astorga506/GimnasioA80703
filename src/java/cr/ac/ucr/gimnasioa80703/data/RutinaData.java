@@ -4,14 +4,12 @@
  */
 package cr.ac.ucr.gimnasioa80703.data;
 
+import cr.ac.ucr.gimnasioa80703.dominio.ItemRutinaMedida;
 import cr.ac.ucr.gimnasioa80703.dominio.Rutina;
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
-import java.util.LinkedList;
 
 /**
  *
@@ -35,19 +33,37 @@ public class RutinaData extends BaseData {
 
             statementRutina.registerOutParameter(1, Types.INTEGER);
             statementRutina.setDate(2, rutina.getFechaCreacion());
+            statementRutina.registerOutParameter(3, Types.DATE);
             statementRutina.setString(4, rutina.getObjetivoCliente());
             statementRutina.setString(5, rutina.getEnfermadadesCliente());
             statementRutina.setInt(6, rutina.getCliente().getCodCliente());
 
             statementRutina.executeUpdate();
 
-
+            rutina.setCodRutina(statementRutina.getInt(1));
+            rutina.setFechaRenovacion(statementRutina.getDate(3));
+            
+            for (ItemRutinaMedida itemMedidaActual : rutina.getItemesRutinaMedida()) {
+                
+                String updateItemMedida = "{CALL sp_insertar_item_medida(?,?,?)}";
+                CallableStatement statementItemMedida = connection.prepareCall(updateItemMedida);
+                
+                statementItemMedida.setInt(1, rutina.getCodRutina());
+                statementItemMedida.setInt(2, itemMedidaActual.getMedidaCorporal().getCodMedida());
+                statementItemMedida.setFloat(1, itemMedidaActual.getValorMedida());
+                
+                statementItemMedida.executeUpdate();
+                
+            }//for-each
+            
 
         } catch (SQLException ex) {
 
             connection.rollback();
             throw new SQLException();
         }
+        
+        connection.close();
 
         return rutina;
     }

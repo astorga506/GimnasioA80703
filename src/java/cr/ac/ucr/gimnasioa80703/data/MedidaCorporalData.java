@@ -6,12 +6,10 @@ package cr.ac.ucr.gimnasioa80703.data;
 
 import java.util.LinkedList;
 import cr.ac.ucr.gimnasioa80703.dominio.MedidaCorporal;
-import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Types;
 
 
 public class MedidaCorporalData extends BaseData{
@@ -38,27 +36,6 @@ public class MedidaCorporalData extends BaseData{
         connection.close();
         
         return medidasCorporales;        
-    }
-    
-    public MedidaCorporal insertar(MedidaCorporal medidaCorporal) throws SQLException{
-        String update = "{CALL sp_insertar_medida(?,?,?)}";
-        Connection connection = this.getConnection();
-        CallableStatement statement =  connection.prepareCall(update);
-        
-        statement.registerOutParameter(1, Types.INTEGER);
-        statement.setString(2, medidaCorporal.getNombreMedida());
-        statement.setString(3, medidaCorporal.getUnidadMedida());
-        
-        //ejecutar el statement
-        
-        statement.executeUpdate();
-        
-        medidaCorporal.setCodMedida(statement.getInt(1));
-        
-        connection.close();
-        
-        return medidaCorporal;
-        
     }
     
 }

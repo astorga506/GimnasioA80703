@@ -30,23 +30,11 @@ public class MedidaCorporalDataTest {
     }
     
     @Test
-    public void test(){
-        
-        medidaCorporalData = new MedidaCorporalData();
-        
-        MedidaCorporal medidaCorporal = new MedidaCorporal();
-        
-        
-        medidaCorporal.setNombreMedida("Brazos");
-        medidaCorporal.setUnidadMedida("cm");
-//        
-        try {
+    public void test(){        
+        try { 
+           MedidaCorporal medidaCorporal = medidaCorporalData.getMedidasCorporales().getFirst();
             
-            medidaCorporalData.insertar(medidaCorporal);
-            
-//           MedidaCorporal medidaCorporal = medidaCorporalData.getMedidasCorporales().getFirst();
-            
-            System.out.println(medidaCorporal.getNombreMedida());
+           System.out.println(medidaCorporal.getNombreMedida());
             
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
