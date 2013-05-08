@@ -20,6 +20,7 @@
     </global-forwards>
 
     <action-mappings>
+        <action input="/buscar_cliente.jsp" scope="request" parameter="metodo" path="/buscarCliente" type="cr.ac.ucr.gimnasioa80703.application.action.BuscarClienteAction"/>
         <action parameter="metodo" path="/insertarRutina" type="cr.ac.ucr.gimnasioa80703.application.action.InsertarRutinaAction"/>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     </action-mappings>

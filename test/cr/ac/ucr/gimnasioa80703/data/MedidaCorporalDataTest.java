@@ -21,7 +21,6 @@ public class MedidaCorporalDataTest {
     @Before
     public void setUp() {
         
-        ;
         
     }
     
