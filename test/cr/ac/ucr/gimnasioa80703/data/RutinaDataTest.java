@@ -20,37 +20,34 @@ import org.junit.Test;
  * @author Carlos
  */
 public class RutinaDataTest {
-    
+
     @Test
-    public void test() {        
+    public void test() {
 //        java.util.Date fecha = new java.util.Date();
 //        Date fechaSql = new Date(fecha.getTime());    
         Rutina rutina = new Rutina();
         RutinaData rutinaData = new RutinaData();
         Cliente cliente = new Cliente();
-        cliente.setCodCliente(1000000001);        
+        cliente.setCodCliente(1000000001);
         MedidaCorporal medidadCorporal = new MedidaCorporal();
         medidadCorporal.setCodMedida(1000000000);
         LinkedList<ItemRutinaMedida> medidas = new LinkedList<ItemRutinaMedida>();
-        medidas.add(new ItemRutinaMedida((float) 3.0 , medidadCorporal));
-        
+        medidas.add(new ItemRutinaMedida((float) 3.0, medidadCorporal));
+
         rutina.setCliente(cliente);
         rutina.setItemesRutinaMedida(medidas);
 //        rutina.setFechaCreacion(new Date(System.currentTimeMillis()));
         try {
             rutinaData.insertar(rutina);
         } catch (SQLException ex) {
-           System.out.println(ex.getMessage());
+            System.out.println(ex.getMessage());
         }
-        
-        
-        
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
