@@ -23,8 +23,8 @@ public class RutinaDataTest {
 
     @Test
     public void test() {
-//        java.util.Date fecha = new java.util.Date();
-//        Date fechaSql = new Date(fecha.getTime());    
+        java.util.Date fecha = new java.util.Date();
+        Date fechaSql = new Date(fecha.getTime());    
         Rutina rutina = new Rutina();
         RutinaData rutinaData = new RutinaData();
         Cliente cliente = new Cliente();
@@ -36,7 +36,7 @@ public class RutinaDataTest {
 
         rutina.setCliente(cliente);
         rutina.setItemesRutinaMedida(medidas);
-//        rutina.setFechaCreacion(new Date(System.currentTimeMillis()));
+        rutina.setFechaCreacion(fechaSql);
         try {
             rutinaData.insertar(rutina);
         } catch (SQLException ex) {

@@ -33,7 +33,6 @@ public class ClienteDataTest {
         clienteData = new ClienteData();
         try {
             LinkedList<Cliente> clientes = clienteData.getClientes("a");
-            
             for (Cliente cliente : clientes) {
                 System.out.println(cliente.getNombreCliente());                
             }
