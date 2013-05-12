@@ -20,7 +20,7 @@ public class ClienteData extends BaseData{
     
     private Cliente cliente;
 
-    public ClienteData() {
+    public ClienteData()throws SQLException{
     }
     
     public LinkedList<Cliente> getClientes() throws SQLException{    

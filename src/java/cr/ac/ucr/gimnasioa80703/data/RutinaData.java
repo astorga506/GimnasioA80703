@@ -11,8 +11,6 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Types;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 /**
  *
@@ -20,7 +18,7 @@ import java.util.GregorianCalendar;
  */
 public class RutinaData extends BaseData {
 
-    public RutinaData() {
+    public RutinaData() throws SQLException{
     }
 
     public Rutina insertar(Rutina rutina) throws SQLException {

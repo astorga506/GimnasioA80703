@@ -17,7 +17,7 @@ public class ClienteBusiness {
     
     ClienteData clienteData;
 
-    public ClienteBusiness() {
+    public ClienteBusiness() throws SQLException {
         clienteData = new ClienteData();
     }
     

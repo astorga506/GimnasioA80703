@@ -13,7 +13,10 @@ import java.sql.SQLException;
 
 
 public class MedidaCorporalData extends BaseData{
-    
+
+    public MedidaCorporalData() throws SQLException {
+    }
+        
     public LinkedList<MedidaCorporal> getMedidasCorporales() throws SQLException{
         String query = "SELECT * "
                         + "FROM MedidaCorporal";

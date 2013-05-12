@@ -7,6 +7,8 @@ package cr.ac.ucr.gimnasioa80703.data;
 import cr.ac.ucr.gimnasioa80703.dominio.MedidaCorporal;
 import java.sql.SQLException;
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,9 +30,9 @@ public class MedidaCorporalDataTest {
     }
 
     @Test
-    public void test() {
-        medidaCorporalData = new MedidaCorporalData();
+    public void test() {        
         try {
+            medidaCorporalData = new MedidaCorporalData();
             LinkedList<MedidaCorporal> medidasCorporales = medidaCorporalData.getMedidasCorporales();
             MedidaCorporal medidaCorporal = medidasCorporales.getFirst();
 
