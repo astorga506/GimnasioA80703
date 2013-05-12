@@ -11,8 +11,6 @@ import cr.ac.ucr.gimnasioa80703.dominio.Rutina;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.LinkedList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -42,7 +40,7 @@ public class RutinaDataTest {
             rutina.setFechaCreacion(fechaSql);
             rutina.setObjetivoCliente("Perder peso");
             rutina.setEnfermadadesCliente("Herpes");
-
+            
             rutinaData.insertar(rutina);
 
         } catch (SQLException ex) {

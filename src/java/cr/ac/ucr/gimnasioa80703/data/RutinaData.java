@@ -8,7 +8,6 @@ import cr.ac.ucr.gimnasioa80703.dominio.ItemRutinaMedida;
 import cr.ac.ucr.gimnasioa80703.dominio.Rutina;
 import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Types;
 
@@ -44,6 +43,8 @@ public class RutinaData extends BaseData {
             rutina.setCodRutina(stmtRutina.getInt(1));
             rutina.setFechaRenovacion(stmtRutina.getDate(3));
             
+            System.out.println(rutina.getCodRutina());
+            
             for (ItemRutinaMedida itemMedidaActual : rutina.getItemesRutinaMedida()) {
                 
                 String updateItemMedida = "{CALL sp_insertar_item_medida(?,?,?)}";
@@ -51,7 +52,7 @@ public class RutinaData extends BaseData {
                 
                 stmtItemMedida.setInt(1, rutina.getCodRutina());
                 stmtItemMedida.setInt(2, itemMedidaActual.getMedidaCorporal().getCodMedida());
-                stmtItemMedida.setFloat(1, itemMedidaActual.getValorMedida());
+                stmtItemMedida.setFloat(3, itemMedidaActual.getValorMedida());
                 
                 stmtItemMedida.executeUpdate();
                 
@@ -64,6 +65,7 @@ public class RutinaData extends BaseData {
             throw new SQLException();
         }
         
+        connection.commit();        
         connection.close();
 
         return rutina;
