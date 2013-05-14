@@ -4,6 +4,9 @@
  */
 package cr.ac.ucr.gimnasioa80703.application.form;
 
+import cr.ac.ucr.gimnasioa80703.dominio.ItemRutinaMedida;
+import cr.ac.ucr.gimnasioa80703.dominio.MedidaCorporal;
+import java.util.LinkedList;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -12,49 +15,86 @@ import org.apache.struts.action.ActionMessage;
 
 /**
  *
- * @author Equipo
+ * @author Carlos
  */
 public class RutinaForm extends org.apache.struts.action.ActionForm {
     
-    private String name;
-    private int number;
+    private int codCliente;
+    private int codMedida; 
+    private float valorMedida;
+    private String nombreCliente;
+    private String apellidosCliente;    
+    private String objetivoCliente;
+    private String enfermadadesCliente;
+    private LinkedList<ItemRutinaMedida> itemesRutinaMedida;
 
-    /**
-     * @return
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param string
-     */
-    public void setName(String string) {
-        name = string;
-    }
-
-    /**
-     * @return
-     */
-    public int getNumber() {
-        return number;
-    }
-
-    /**
-     * @param i
-     */
-    public void setNumber(int i) {
-        number = i;
-    }
-
-    /**
-     *
-     */
     public RutinaForm() {
-        super();
-        // TODO Auto-generated constructor stub
     }
 
+    public float getValorMedida() {
+        return valorMedida;
+    }
+
+    public void setValorMedida(float valorMedida) {
+        this.valorMedida = valorMedida;
+    }
+    
+    public int getCodMedida() {
+        return codMedida;
+    }
+
+    public void setCodMedida(int codMedida) {
+        this.codMedida = codMedida;
+    }
+
+    public int getCodCliente() {
+        return codCliente;
+    }
+
+    public String getObjetivoCliente() {
+        return objetivoCliente;
+    }
+
+    public void setObjetivoCliente(String objetivoCliente) {
+        this.objetivoCliente = objetivoCliente;
+    }
+
+    public String getEnfermadadesCliente() {
+        return enfermadadesCliente;
+    }
+
+    public void setEnfermadadesCliente(String enfermadadesCliente) {
+        this.enfermadadesCliente = enfermadadesCliente;
+    }
+
+    public LinkedList<ItemRutinaMedida> getItemesRutinaMedida() {
+        return itemesRutinaMedida;
+    }
+
+    public void setItemesRutinaMedida(LinkedList<ItemRutinaMedida> itemesRutinaMedida) {
+        this.itemesRutinaMedida = itemesRutinaMedida;
+    }
+
+    public void setCodCliente(int codCliente) {
+        this.codCliente = codCliente;
+    }
+
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
+    }
+
+    public String getApellidosCliente() {
+        return apellidosCliente;
+    }
+
+    public void setApellidosCliente(String apellidosCliente) {
+        this.apellidosCliente = apellidosCliente;
+    }
+   
     /**
      * This is the action called from the Struts framework.
      *
@@ -64,10 +104,19 @@ public class RutinaForm extends org.apache.struts.action.ActionForm {
      */
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
-        if (getName() == null || getName().length() < 1) {
-            errors.add("name", new ActionMessage("error.name.required"));
-            // TODO: add 'error.name.required' key to your resources
+        
+        if(this.objetivoCliente == null || this.objetivoCliente.equalsIgnoreCase("")){
+            errors.add("Errores", new ActionMessage("error.objetivo.no.ingresado"));
         }
+        
+        if(this.enfermadadesCliente == null || this.enfermadadesCliente.equalsIgnoreCase("")){
+            errors.add("Errores", new ActionMessage("error.enfermades.no.ingresadas"));
+        }
+        
+        if(this.valorMedida <= 0.0){
+            errors.add("Errores", new ActionMessage("error.valor.medida.invalido"));
+        }
+        
         return errors;
     }
 }
