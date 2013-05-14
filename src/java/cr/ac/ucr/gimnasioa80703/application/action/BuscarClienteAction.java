@@ -5,7 +5,6 @@
 package cr.ac.ucr.gimnasioa80703.application.action;
 
 import cr.ac.ucr.gimnasioa80703.business.ClienteBusiness;
-import cr.ac.ucr.gimnasioa80703.data.ClienteData;
 import cr.ac.ucr.gimnasioa80703.dominio.Cliente;
 import java.util.LinkedList;
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +14,6 @@ import org.apache.struts.actions.DispatchAction;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionForward;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 /**
  *

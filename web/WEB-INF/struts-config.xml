@@ -7,10 +7,10 @@
 
 <struts-config>
     <form-beans>
-        <form-bean name="ClienteForm" 
-                   type="cr.ac.ucr.gimnasioa80703.application.form.ClienteForm"/>
         <form-bean name="RutinaForm" 
                    type="cr.ac.ucr.gimnasioa80703.application.form.RutinaForm"/>
+        <form-bean name="ClienteForm" 
+                   type="cr.ac.ucr.gimnasioa80703.application.form.ClienteForm"/>
     
     </form-beans>
     
@@ -23,12 +23,14 @@
     </global-forwards>
 
     <action-mappings>
+        <action input="/insertar_rutina.jsp" name="RutinaForm" parameter="metodo" 
+                path="/insertarRutina" scope="request" 
+                type="cr.ac.ucr.gimnasioa80703.application.action.InsetarRutinaAction" 
+                validate="false"/>
         <action input="/buscar_cliente.jsp" name="ClienteForm" parameter="metodo" 
                 path="/buscarCliente" scope="request" 
                 type="cr.ac.ucr.gimnasioa80703.application.action.BuscarClienteAction" 
                 validate="false"/>
-         <action parameter="metodo" path="/insertarRutina" 
-                 type="cr.ac.ucr.gimnasioa80703.application.action.InsertarRutinaAction"/>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     </action-mappings>
     

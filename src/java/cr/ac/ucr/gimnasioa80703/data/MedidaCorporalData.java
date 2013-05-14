@@ -41,4 +41,26 @@ public class MedidaCorporalData extends BaseData{
         return medidasCorporales;        
     }
     
+    public MedidaCorporal getMedidaCorporal(int codMedida) throws SQLException{        
+        String query = "SELECT * "
+                        + "FROM MedidaCorporal "
+                        + "WHERE cod_medida =?";
+        Connection connection = this.getConnection();
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, codMedida);
+        ResultSet resultSet = statement.executeQuery();
+        
+        MedidaCorporal medidaCorporal = new MedidaCorporal();
+        while(resultSet.next()){            
+            medidaCorporal.setCodMedida(resultSet.getInt("cod_medida"));
+            medidaCorporal.setNombreMedida(resultSet.getString("nombre_medida"));
+            medidaCorporal.setUnidadMedida(resultSet.getString("unidad_medida"));
+                        
+        }//while
+        
+        connection.close();
+        
+        return medidaCorporal;        
+    }
+    
 }
