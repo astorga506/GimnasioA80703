@@ -32,8 +32,8 @@ public class BuscarClienteAction extends DispatchAction {
     public ActionForward iniciar(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        
-        
+        clientes = new LinkedList<>();
+        request.setAttribute("clientes", clientes);
         
         
         return mapping.getInputForward();
@@ -48,7 +48,8 @@ public class BuscarClienteAction extends DispatchAction {
             throws Exception {
         
         ClienteBusiness clienteBuss = new ClienteBusiness();
-        clientes = clienteBuss.getClientes(String.valueOf(request.getParameter("apellidosCliente")));
+        clientes = 
+                clienteBuss.getClientes(String.valueOf(request.getParameter("apellidosCliente")));
         request.setAttribute("clientes", clientes);
         
         return mapping.getInputForward();

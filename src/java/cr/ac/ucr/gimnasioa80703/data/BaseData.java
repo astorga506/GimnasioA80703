@@ -16,10 +16,10 @@ import java.util.logging.Logger;
  */
 public class BaseData {
 
-    private final String UrlBase = "jdbc:sqlserver://127.0.0.1;"
+    private final String UrlBase = "jdbc:sqlserver://10.155.7.170;"
                                  + "databaseName=Gimnasio_A80703;"
 //                                 + "integratedSecurity=true;";
-                                 + "user=carlos;password=m4rlb0r0;";
+                                 + "user=lenguajes;password=lenguajes;";
     private final String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     private Connection conexion;
 

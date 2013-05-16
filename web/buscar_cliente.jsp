@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="html" uri="/WEB-INF/struts-html.tld"%>
 <%@taglib prefix="bean" uri="/WEB-INF/struts-bean.tld"%>
+<%@taglib prefix="logic" uri="/WEB-INF/struts-logic.tld"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -21,6 +22,22 @@
             <input type="text" name="apellidosCliente"/>
             <input type="submit" value="<bean:message key="button.buscar"/>"/>            
         </form>
+        <table BORDER=1 WIDTH=300> 
+                <tr> 
+                    <td>ID</td> 
+                    <td>Apellidos</td> 
+                    <td>Nombre</td>
+                    <td>Accion</td>
+                </tr> 
+                <logic:iterate name="clientes" id="clienteActual">
+                    <tr>
+                        <td>${clienteActual.codCliente}</td>
+                        <td>${clienteActual.apellidosCliente}</td>
+                        <td>${clienteActual.nombreCliente}</td>
+                        <td><a href="./editar_cliente.jsp?codCliente=${clienteActual.codCliente}" >Editar</a>  Eliminar</td>
+                    </tr> 
+                </logic:iterate>
+            </table>        
         <br><br> 
     </body>
 </html>

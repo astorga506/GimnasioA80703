@@ -56,24 +56,23 @@
             <input type="submit" 
                    value="<bean:message key="button.incluir.medida"/>" onclick="incluirMedida();">
             <br>
-        <html id="tabla"/>
-        <table BORDER=1 WIDTH=300> 
-            <tr> 
-                <td>Medida</td> 
-                <td>Unidad</td> 
-                <td>Valor</td> 
-            </tr> 
-            <logic:iterate name="itemesMedidas" id="itemActual">
-                <tr>
-                    <td>value="${itemActual.nombreMedida}"</td>
-                    <td>value="${itemActual.unidadMedida}"</td>
-                    <td>value="${itemActual.valorMedida}"</td>
+            <table BORDER=1 WIDTH=300> 
+                <tr> 
+                    <td>Medida</td> 
+                    <td>Unidad</td> 
+                    <td>Valor</td> 
                 </tr> 
-            </logic:iterate>
-        </table>
-        <input type="submit" 
-               value="<bean:message key="button.insertar.rutina"/>" onclick="salvar();">
-    </html:form>
+                <logic:iterate name="itemesMedidas" id="itemActual">
+                    <tr>
+                        <td>value="${itemActual.nombreMedida}"</td>
+                        <td>value="${itemActual.unidadMedida}"</td>
+                        <td>value="${itemActual.valorMedida}"</td>
+                    </tr> 
+                </logic:iterate>
+            </table>
+            <input type="submit" 
+                   value="<bean:message key="button.insertar.rutina"/>" onclick="salvar();">
+        </html:form>
 
-</body>
+    </body>
 </html>
