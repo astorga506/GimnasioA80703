@@ -82,4 +82,52 @@ public class ClienteData extends BaseData{
         
     }
     
+    public Cliente getCliente(int codCliente) throws SQLException{    
+        String query = "SELECT * "
+                        + "FROM Cliente "
+                        + "WHERE id_cliente=?";        
+        Connection connection = this.getConnection();
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setInt(1, codCliente);
+        ResultSet resultSet = statement.executeQuery();        
+        Cliente cliente = new Cliente();
+        
+        while(resultSet.next()){                
+            cliente.setCodCliente(resultSet.getInt("id_cliente"));
+            cliente.setNombreCliente(resultSet.getString("nombre_cliente"));
+            cliente.setApellidosCliente(resultSet.getString("apellidos_cliente"));
+            cliente.setFechaNacimiento(resultSet.getDate("fecha_nacimiento"));
+            cliente.setTelefono(resultSet.getString("telefono"));
+            cliente.setDireccion(resultSet.getString("direccion"));
+            cliente.setNombreContactoEmergencia(resultSet.getString("nombre_contacto_emergencia"));
+            cliente.setTelContactoEmergencia(resultSet.getString("tel_contacto_emergencia"));
+        
+        }
+        
+        connection.close();
+                
+        return cliente;
+    }
+    
+    public Cliente setCliente (Cliente cliente) throws SQLException{
+        String update = "CALL {sp_editar_cliente(?,?,?,?,?,?,?,?}";
+        Connection conexion = this.getConnection();
+        CallableStatement stmtEditCliente = conexion.prepareCall(update);
+        
+        stmtEditCliente.setInt(1, cliente.getCodCliente());
+        stmtEditCliente.setString(2, cliente.getNombreCliente());
+        stmtEditCliente.setString(3, cliente.getApellidosCliente());
+        stmtEditCliente.setDate(4, cliente.getFechaNacimiento());
+        stmtEditCliente.setString(5, cliente.getTelefono());
+        stmtEditCliente.setString(6, cliente.getDireccion());
+        stmtEditCliente.setString(7, cliente.getNombreContactoEmergencia());
+        stmtEditCliente.setString(8, cliente.getTelContactoEmergencia());
+        
+        stmtEditCliente.execute();
+        
+        conexion.close();
+        
+        return cliente;
+    }
+    
 }

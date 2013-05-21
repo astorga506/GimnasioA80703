@@ -23,6 +23,7 @@
     </global-forwards>
 
     <action-mappings>
+        <action input="/editar_cliente.jsp" name="ClienteForm" parameter="metodo" path="/editarCliente" scope="request" type="cr.ac.ucr.gimnasioa80703.application.action.EditarClienteAction"/>
         <action input="/insertar_rutina.jsp" name="RutinaForm" parameter="metodo" 
                 path="/insertarRutina" scope="request" 
                 type="cr.ac.ucr.gimnasioa80703.application.action.InsetarRutinaAction" 

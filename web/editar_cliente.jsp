@@ -15,14 +15,17 @@
     </head>
     <body>
         <h1><bean:message key="titulo.editar.cliente"/></h1>
-        <bean:message key="cliente.codigo"/><br>
-        <bean:message key="cliente.nombre"/><br>
-        <bean:message key="cliente.apellidos"/><br>
-        <bean:message key="cliente.fecha.nacimiento"/><br>
-        <bean:message key="cliente.telefono"/><br>
-        <bean:message key="cliente.direccion"/><br>
-        <bean:message key="cliente.nombre.contacto"/><br>
-        <bean:message key="cliente.telefono.contacto"/><br>
-        <bean:message key="buton.editar.cliente"/><br>
+        <html:form action="/editarCliente" method="get">
+            <input type="hidden" name="metodo" value="salvar">
+            <bean:message key="cliente.codigo"/><html:text property="codCliente" value="${cliente.codCliente}"/><br>
+            <bean:message key="cliente.nombre"/><html:text property="nombreCliente" value="${cliente.nombreCliente}"/><br>
+            <bean:message key="cliente.apellidos"/><html:text property="aplellidosCliente" value="${cliente.apellidosCliente}"/><br>
+            <bean:message key="cliente.fecha.nacimiento"/><html:text property="fechaNacimiento" value="${cliente.fechaNacimiento}"/><br>
+            <bean:message key="cliente.telefono"/><html:text property="telefono" value="${cliente.telefono}"/><br>
+            <bean:message key="cliente.direccion"/><html:text property="direccion" value="${cliente.direccion}"/><br>
+            <bean:message key="cliente.nombre.contacto"/><html:text property="nombreContactoEmergencia" value="${cliente.nombreContactoEmergencia}"/><br>
+            <bean:message key="cliente.telefono.contacto"/><html:text property="telContactoEmergencia" value="${cliente.telContactoEmergencia}"/><br>
+            <input type="submit" value="<bean:message key="buton.editar.cliente"/>"/>
+            </html:form>
     </body>
 </html>

@@ -4,9 +4,7 @@
  */
 package cr.ac.ucr.gimnasioa80703.application.form;
 
-import cr.ac.ucr.gimnasioa80703.dominio.Cliente;
 import java.sql.Date;
-import java.util.LinkedList;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
@@ -39,8 +37,6 @@ public class ClienteForm extends org.apache.struts.action.ActionForm {
 //    public void setClientes(LinkedList<Cliente> clientes) {
 //        this.clientes = clientes;
 //    }
-
-    
     
     public int getCodCliente() {
         return codCliente;

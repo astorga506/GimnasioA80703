@@ -29,5 +29,13 @@ public class ClienteBusiness {
         return clienteData.getClientes(apellidosCliente);        
     }
     
+    public Cliente getCliente(int codCliente) throws SQLException{
+        return clienteData.getCliente(codCliente);
+    }
+    
+    public Cliente setCliente (Cliente cliente) throws SQLException{
+        return clienteData.setCliente(cliente);
+    }
+    
     
 }
