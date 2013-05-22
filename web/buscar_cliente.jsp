@@ -34,7 +34,9 @@
                         <td>${clienteActual.codCliente}</td>
                         <td>${clienteActual.apellidosCliente}</td>
                         <td>${clienteActual.nombreCliente}</td>
-                        <td><a href="./editarCliente.do?metodo=iniciar&codCliente=${clienteActual.codCliente}" >Editar</a>  Eliminar</td>
+                        <td><a href="./editarCliente.do?metodo=iniciar&codCliente=${clienteActual.codCliente}">Editar</a>  
+                            <a href="./eliminarCliente.do?metodo=iniciar&codCliente=${clienteActual.codCliente}">Eliminar</a>
+                        </td>
                     </tr> 
                 </logic:iterate>
             </table>        

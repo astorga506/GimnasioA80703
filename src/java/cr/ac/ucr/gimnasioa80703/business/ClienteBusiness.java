@@ -37,5 +37,8 @@ public class ClienteBusiness {
         return clienteData.setCliente(cliente);
     }
     
+     public void eliminarCliente (int codCliente) throws SQLException{
+         clienteData.eliminarCliente(codCliente);
+     }
     
 }

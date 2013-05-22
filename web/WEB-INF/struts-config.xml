@@ -25,6 +25,9 @@
     </global-forwards>
 
     <action-mappings>
+        <action input="/eliminar_cliente.jsp" name="ClienteForm" parameter="metodo"
+                path="/eliminarCliente" scope="request" validate="false"
+                type="cr.ac.ucr.gimnasioa80703.application.action.EliminarClienteAction"/>
         <action input="/editar_cliente.jsp" name="ClienteForm" parameter="metodo" 
                 path="/editarCliente" scope="request" validate="false"
                 type="cr.ac.ucr.gimnasioa80703.application.action.EditarClienteAction"/>

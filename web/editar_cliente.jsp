@@ -22,14 +22,22 @@
         </ul>
         <html:form action="/editarCliente" method="get">
             <input type="hidden" name="metodo" value="salvar">
-            <bean:message key="cliente.codigo"/><html:text property="codCliente" value="${cliente.codCliente}"/><br>
-            <bean:message key="cliente.nombre"/><html:text property="nombreCliente" value="${cliente.nombreCliente}"/><br>
-            <bean:message key="cliente.apellidos"/><html:text property="apellidosCliente" value="${cliente.apellidosCliente}"/><br>
-            <bean:message key="cliente.fecha.nacimiento"/><html:text property="fechaNacimiento" value="${cliente.fechaNacimiento}"/><br>
-            <bean:message key="cliente.telefono"/><html:text property="telefono" value="${cliente.telefono}"/><br>
-            <bean:message key="cliente.direccion"/><html:text property="direccion" value="${cliente.direccion}"/><br>
-            <bean:message key="cliente.nombre.contacto"/><html:text property="nombreContactoEmergencia" value="${cliente.nombreContactoEmergencia}"/><br>
-            <bean:message key="cliente.telefono.contacto"/><html:text property="telContactoEmergencia" value="${cliente.telContactoEmergencia}"/><br>
+            <bean:message key="label.codigo.cliente"/>
+                <html:text property="codCliente" value="${cliente.codCliente}"/><br>
+            <bean:message key="label.nombre.cliente"/>
+                <html:text property="nombreCliente" value="${cliente.nombreCliente}"/><br>
+            <bean:message key="label.apellidos.cliente"/>
+                <html:text property="apellidosCliente" value="${cliente.apellidosCliente}"/><br>
+            <bean:message key="label.fecha.nacimiento.cliente"/>
+                <html:text property="fechaNacimiento" value="${cliente.fechaNacimiento}"/><br>
+            <bean:message key="label.telefono.cliente"/>
+                <html:text property="telefono" value="${cliente.telefono}"/><br>
+            <bean:message key="label.direccion.cliente"/>
+                <html:text property="direccion" value="${cliente.direccion}"/><br>
+            <bean:message key="label.nombre.contacto.cliente"/>
+                <html:text property="nombreContactoEmergencia" value="${cliente.nombreContactoEmergencia}"/><br>
+            <bean:message key="label.telefono.contacto.cliente"/>
+                <html:text property="telContactoEmergencia" value="${cliente.telContactoEmergencia}"/><br>
             <input type="submit" value="<bean:message key="buton.editar.cliente"/>"/>
             </html:form>
     </body>

@@ -130,4 +130,14 @@ public class ClienteData extends BaseData{
         return cliente;
     }
     
+    public void eliminarCliente (int codCliente) throws SQLException{
+        Connection conexion = this.getConnection();
+        String delete = "{CALL sp_eliminar_cliente(?)}";
+        CallableStatement stmtBorrCliente = conexion.prepareCall(delete);
+        stmtBorrCliente.setInt(1, codCliente);
+        stmtBorrCliente.executeUpdate();
+        
+        conexion.close();
+    }
+    
 }
