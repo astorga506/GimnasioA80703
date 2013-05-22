@@ -19,7 +19,7 @@
             <input type="hidden" name="metodo" value="salvar">
             <bean:message key="cliente.codigo"/><html:text property="codCliente" value="${cliente.codCliente}"/><br>
             <bean:message key="cliente.nombre"/><html:text property="nombreCliente" value="${cliente.nombreCliente}"/><br>
-            <bean:message key="cliente.apellidos"/><html:text property="aplellidosCliente" value="${cliente.apellidosCliente}"/><br>
+            <bean:message key="cliente.apellidos"/><html:text property="apellidosCliente" value="${cliente.apellidosCliente}"/><br>
             <bean:message key="cliente.fecha.nacimiento"/><html:text property="fechaNacimiento" value="${cliente.fechaNacimiento}"/><br>
             <bean:message key="cliente.telefono"/><html:text property="telefono" value="${cliente.telefono}"/><br>
             <bean:message key="cliente.direccion"/><html:text property="direccion" value="${cliente.direccion}"/><br>

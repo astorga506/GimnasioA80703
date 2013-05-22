@@ -16,7 +16,6 @@
     </head>
     <body>
         <script language="javascript">
-
             window.onload = incluirMedida();
 
             function incluirMedida() {

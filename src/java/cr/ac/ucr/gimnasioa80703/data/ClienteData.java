@@ -109,9 +109,9 @@ public class ClienteData extends BaseData{
         return cliente;
     }
     
-    public Cliente setCliente (Cliente cliente) throws SQLException{
-        String update = "CALL {sp_editar_cliente(?,?,?,?,?,?,?,?}";
+    public Cliente setCliente (Cliente cliente) throws SQLException{        
         Connection conexion = this.getConnection();
+        String update = "{CALL sp_editar_cliente(?,?,?,?,?,?,?,?)}";
         CallableStatement stmtEditCliente = conexion.prepareCall(update);
         
         stmtEditCliente.setInt(1, cliente.getCodCliente());
@@ -123,7 +123,9 @@ public class ClienteData extends BaseData{
         stmtEditCliente.setString(7, cliente.getNombreContactoEmergencia());
         stmtEditCliente.setString(8, cliente.getTelContactoEmergencia());
         
-        stmtEditCliente.execute();
+        stmtEditCliente.executeUpdate();
+        
+        System.out.println("/--------------------------------------\\");
         
         conexion.close();
         

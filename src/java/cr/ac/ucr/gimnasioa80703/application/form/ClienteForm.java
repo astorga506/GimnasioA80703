@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 
 /**
  *
  * @author Carlos
  */
 public class ClienteForm extends org.apache.struts.action.ActionForm {
-    
-    
+        
     private int codCliente;
     private String nombreCliente;
     private String apellidosCliente;
@@ -25,19 +25,10 @@ public class ClienteForm extends org.apache.struts.action.ActionForm {
     private String direccion;
     private String nombreContactoEmergencia;
     private String telContactoEmergencia;   
-//    private LinkedList<Cliente> clientes;
 
     public ClienteForm() {
     }
 
-//    public LinkedList<Cliente> getClientes() {
-//        return clientes;
-//    }
-//
-//    public void setClientes(LinkedList<Cliente> clientes) {
-//        this.clientes = clientes;
-//    }
-    
     public int getCodCliente() {
         return codCliente;
     }
@@ -109,9 +100,31 @@ public class ClienteForm extends org.apache.struts.action.ActionForm {
      * @param request The HTTP Request we are processing.
      * @return
      */
+    @Override
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
         
+        if(this.nombreCliente == null || this.nombreCliente.equalsIgnoreCase("")){
+            errors.add("errors", new ActionMessage("error.falta.nombre.cliente"));
+        }
+        if(this.apellidosCliente == null || this.apellidosCliente.equalsIgnoreCase("")){
+            errors.add("errors", new ActionMessage("error.falta.apellidos.cliente"));
+        }
+        if(this.fechaNacimiento == null || this.fechaNacimiento == null){
+            errors.add("errors", new ActionMessage("error.falta.fecha.nacimiento.cliente"));
+        }
+        if(this.telefono == null || this.telefono.equalsIgnoreCase("")){
+            errors.add("errors", new ActionMessage("error.falta.telefono.cliente"));
+        }
+        if(this.direccion == null || this.direccion.equalsIgnoreCase("")){
+            errors.add("errors", new ActionMessage("error.falta.direccion.cliente"));
+        }
+        if(this.nombreContactoEmergencia == null || this.nombreContactoEmergencia.equalsIgnoreCase("")){
+            errors.add("errors", new ActionMessage("error.falta.nombre.contacto.cliente"));
+        }
+        if(this.telContactoEmergencia == null || this.telContactoEmergencia.equalsIgnoreCase("")){
+            errors.add("errors", new ActionMessage("error.falta.telefono.contacto.cliente"));
+        }
         return errors;
     }
 }

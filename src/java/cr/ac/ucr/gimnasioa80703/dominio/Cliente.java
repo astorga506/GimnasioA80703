@@ -98,6 +98,15 @@ public class Cliente {
         this.telContactoEmergencia = telContactoEmergencia;
     }
     
-    
+    public String toString(){        
+        return "Codigo Cliente: "+ String.valueOf(codCliente)+                
+                "\nNombre Cliente: "+nombreCliente+
+                "\nApellidos Cliente: "+apellidosCliente+
+                "\nFecha Nacimiento: "+fechaNacimiento+
+                "\nTelefono: "+telefono+
+                "\nDireccion: "+direccion+
+                "\nNombre Contacto Emergencia: "+nombreContactoEmergencia+
+                "\nTelefono Contacto Emergencia: "+telContactoEmergencia;
+    }
     
 }
