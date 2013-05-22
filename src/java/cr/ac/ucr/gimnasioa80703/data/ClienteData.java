@@ -124,9 +124,7 @@ public class ClienteData extends BaseData{
         stmtEditCliente.setString(8, cliente.getTelContactoEmergencia());
         
         stmtEditCliente.executeUpdate();
-        
-        System.out.println("/--------------------------------------\\");
-        
+                
         conexion.close();
         
         return cliente;

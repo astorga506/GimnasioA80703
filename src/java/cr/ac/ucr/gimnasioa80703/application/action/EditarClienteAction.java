@@ -17,6 +17,7 @@ import org.apache.struts.actions.DispatchAction;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMessage;
 
 /**
  *
@@ -57,23 +58,24 @@ public class EditarClienteAction extends DispatchAction {
             Cliente cliente = new Cliente();
             BeanUtils.copyProperties(cliente, clienteForm);
             ClienteBusiness clienteBus = new ClienteBusiness();
-            boolean cambiado = true;
 
             try {
                 clienteBus.setCliente(cliente);
-                cambiado = true;
+                request.setAttribute("titulo","titulo.editar.cliente");
+                request.setAttribute("mensaje","mensaje.exito.cliente.editado");
+                return mapping.findForward(SUCCESS);
 
             } catch (SQLException ex) {
-                cambiado = false;
+                errors.add("errors", new ActionMessage("error.bd.cliente.no.editado"));
+                this.saveErrors(request, errors);
             }
            
 
         } else {
             request.setAttribute("cliente", this.cliente);
             this.saveErrors(request, errors);
-            return mapping.getInputForward();
-        }
-
-        return mapping.findForward(SUCCESS);
+            
+        }        
+        return mapping.getInputForward();        
     }
 }

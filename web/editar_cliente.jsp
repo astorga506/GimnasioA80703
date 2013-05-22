@@ -15,6 +15,11 @@
     </head>
     <body>
         <h1><bean:message key="titulo.editar.cliente"/></h1>
+        <ul type="square">
+            <html:messages id="error">
+                <li>${error}</li>
+            </html:messages>
+        </ul>
         <html:form action="/editarCliente" method="get">
             <input type="hidden" name="metodo" value="salvar">
             <bean:message key="cliente.codigo"/><html:text property="codCliente" value="${cliente.codCliente}"/><br>
