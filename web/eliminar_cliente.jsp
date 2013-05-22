@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib  prefix="bean" uri="/WEB-INF/struts-bean.tld" %>
+<%@taglib prefix="html" uri="/WEB-INF/struts-html.tld"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,8 +15,13 @@
     </head>
     <body>
         <h1><bean:message key="titulo.eliminar.cliente"/></h1>
-        <bean:message key="label.codigo.cliente"/>${cliente.codCliente}<br>
-        <bean:message key="label.nombre.cliente"/>${cliente.nombreCliente}<br>
-        <bean:message key="label.apellidos.cliente"/>${cliente.apellidosCliente}<br>
+        <html:form action="/eliminarCliente" method="get">
+            <input type="hidden" name="metodo" value="eliminar">
+            <bean:message key="label.codigo.cliente"/><html:text property="codCliente" value="${cliente.codCliente}"/><br>
+            <bean:message key="label.nombre.cliente"/>${cliente.nombreCliente}<br>
+            <bean:message key="label.apellidos.cliente"/>${cliente.apellidosCliente}<br>
+            <input type="submit" value="<bean:message key="boton.eliminar.cliente"/>"/>
+            <input type="button" value="<bean:message key="boton.cancelar"/>"/>
+        </html:form>        
     </body>
 </html>

@@ -42,9 +42,14 @@ public class EliminarClienteAction extends DispatchAction {
      * This is the Struts action method called on http://.../actionPath?method=myAction2, where
      * "method" is the value specified in <action> element : ( <action parameter="method" .../> )
      */
-    public ActionForward myAction2(ActionMapping mapping, ActionForm form,
+    public ActionForward eliminar(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
+        ClienteBusiness clienteBus = new ClienteBusiness();
+        clienteBus.eliminarCliente(Integer.valueOf(request.getParameter("codCliente")));
+        request.setAttribute("titulo", "titulo.eliminar.cliente");
+        request.setAttribute("titulo", "mensaje.exito.cliente.eliminado");
+        
         
         return mapping.findForward(SUCCESS);
     }
