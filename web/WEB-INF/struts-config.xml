@@ -20,19 +20,20 @@
 
     <global-forwards>
         <forward name="welcome"  path="/Welcome.do"/>
-        <forward name="succes" path="/exito.jsp"/>
+        <forward name="success" path="/exito.jsp"/>
+        <forward name="error" path="/error.jsp"/>
     </global-forwards>
 
     <action-mappings>
-        <action input="/editar_cliente.jsp" name="ClienteForm" parameter="metodo" path="/editarCliente" scope="request" type="cr.ac.ucr.gimnasioa80703.application.action.EditarClienteAction"/>
+        <action input="/editar_cliente.jsp" name="ClienteForm" parameter="metodo" 
+                path="/editarCliente" scope="request" validate="false"
+                type="cr.ac.ucr.gimnasioa80703.application.action.EditarClienteAction"/>
         <action input="/insertar_rutina.jsp" name="RutinaForm" parameter="metodo" 
-                path="/insertarRutina" scope="request" 
-                type="cr.ac.ucr.gimnasioa80703.application.action.InsetarRutinaAction" 
-                validate="false"/>
+                path="/insertarRutina" scope="request" validate="false"
+                type="cr.ac.ucr.gimnasioa80703.application.action.InsetarRutinaAction"/>
         <action input="/buscar_cliente.jsp" name="ClienteForm" parameter="metodo" 
-                path="/buscarCliente" scope="request" 
-                type="cr.ac.ucr.gimnasioa80703.application.action.BuscarClienteAction" 
-                validate="false"/>
+                path="/buscarCliente" scope="request" validate="false"
+                type="cr.ac.ucr.gimnasioa80703.application.action.BuscarClienteAction"/>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     </action-mappings>
     

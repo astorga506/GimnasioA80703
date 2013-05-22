@@ -110,7 +110,7 @@ public class ClienteForm extends org.apache.struts.action.ActionForm {
         if(this.apellidosCliente == null || this.apellidosCliente.equalsIgnoreCase("")){
             errors.add("errors", new ActionMessage("error.falta.apellidos.cliente"));
         }
-        if(this.fechaNacimiento == null || this.fechaNacimiento == null){
+        if(this.fechaNacimiento == null){
             errors.add("errors", new ActionMessage("error.falta.fecha.nacimiento.cliente"));
         }
         if(this.telefono == null || this.telefono.equalsIgnoreCase("")){

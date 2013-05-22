@@ -26,6 +26,8 @@ public class EditarClienteAction extends DispatchAction {
 
     /* forward name="success" path="" */
     private final static String SUCCESS = "success";
+    private final static String ERROR = "error";
+    private Cliente cliente;
 
     /**
      * This is the Struts action method called on http://.../actionPath?method=myAction1, where
@@ -34,15 +36,9 @@ public class EditarClienteAction extends DispatchAction {
     public ActionForward iniciar(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-
         ClienteBusiness clienteBus = new ClienteBusiness();
-        Cliente cliente = clienteBus.getCliente(Integer.parseInt(request.getParameter("codCliente")));
+        cliente = clienteBus.getCliente(Integer.parseInt(request.getParameter("codCliente")));
         request.setAttribute("cliente", cliente);
-        
-        System.out.println("/--------------------------------------\\");
-        System.out.println(cliente.toString());
-
-        System.out.println("/--------------------------------------\\");
 
         return mapping.getInputForward();
     }
@@ -56,26 +52,24 @@ public class EditarClienteAction extends DispatchAction {
             throws Exception {
         ClienteForm clienteForm = (ClienteForm) form;
         ActionErrors errors = clienteForm.validate(mapping, request);
-        if(errors.isEmpty()){
-        Cliente cliente = new Cliente();
-        BeanUtils.copyProperties(cliente, clienteForm);
-        ClienteBusiness clienteBus = new ClienteBusiness();
-        boolean insertado = true;
 
-        System.out.println("/--------------------------------------\\");
-        System.out.println(cliente.toString());
+        if (errors.isEmpty()) {
+            Cliente cliente = new Cliente();
+            BeanUtils.copyProperties(cliente, clienteForm);
+            ClienteBusiness clienteBus = new ClienteBusiness();
+            boolean cambiado = true;
 
-        System.out.println("/--------------------------------------\\");
+            try {
+                clienteBus.setCliente(cliente);
+                cambiado = true;
 
-        try {
-            clienteBus.setCliente(cliente);
-            insertado = true;
+            } catch (SQLException ex) {
+                cambiado = false;
+            }
+           
 
-        } catch (SQLException ex) {
-            insertado = false;
-        }
-
-        } else{
+        } else {
+            request.setAttribute("cliente", this.cliente);
             this.saveErrors(request, errors);
             return mapping.getInputForward();
         }
