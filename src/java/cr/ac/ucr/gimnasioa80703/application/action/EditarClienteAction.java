@@ -17,7 +17,6 @@ import org.apache.struts.actions.DispatchAction;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionForward;
-import org.apache.struts.action.ActionMessage;
 
 /**
  *
@@ -26,8 +25,8 @@ import org.apache.struts.action.ActionMessage;
 public class EditarClienteAction extends DispatchAction {
 
     /* forward name="success" path="" */
-    private final static String SUCCESS = "success";
-    private Cliente cliente;
+    private final static String EXITO = "success";
+    private final static String NOEXITO = "error";
 
     /**
      * This is the Struts action method called on http://.../actionPath?method=myAction1, where
@@ -37,7 +36,7 @@ public class EditarClienteAction extends DispatchAction {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         ClienteBusiness clienteBus = new ClienteBusiness();
-        cliente = clienteBus.getCliente(Integer.parseInt(request.getParameter("codCliente")));
+        Cliente cliente = clienteBus.getCliente(Integer.parseInt(request.getParameter("codCliente")));
         request.setAttribute("cliente", cliente);
 
         return mapping.getInputForward();
@@ -52,31 +51,27 @@ public class EditarClienteAction extends DispatchAction {
             throws Exception {
         ClienteForm clienteForm = (ClienteForm) form;
         ActionErrors errors = clienteForm.validate(mapping, request);
+        Cliente cliente = new Cliente();
+        BeanUtils.copyProperties(cliente, clienteForm);
 
         if (errors.isEmpty()) {
-            Cliente cliente = new Cliente();
-            BeanUtils.copyProperties(cliente, clienteForm);
             ClienteBusiness clienteBus = new ClienteBusiness();
-
             try {
                 clienteBus.setCliente(cliente);
-                request.setAttribute("titulo","titulo.editar.cliente");
-                request.setAttribute("mensaje","mensaje.exito.cliente.editado");
-                return mapping.findForward(SUCCESS);
+                request.setAttribute("titulo", "titulo.editar.cliente");
+                request.setAttribute("mensaje", "mensaje.exito.cliente.editado");
+                return mapping.findForward(EXITO);
 
             } catch (SQLException ex) {
-                errors.add("errors", new ActionMessage("error.bd.cliente.no.editado"));
-                this.saveErrors(request, errors);
+                request.setAttribute("titulo", "titulo.eliminar.cliente");
+                request.setAttribute("mensaje", "error.bd");
+                return mapping.findForward(NOEXITO);
             }//try-catch
-           
-        } else {
-            request.setAttribute("cliente", this.cliente);
-            this.saveErrors(request, errors);            
-        }//if-else        
+
+        }//if-no hay errores      
+
+        request.setAttribute("cliente", cliente);
+        this.saveErrors(request, errors);
         return mapping.getInputForward();//retorna al input con los errores        
     }//salvar
-    
-    
-    
-    
 }//clase

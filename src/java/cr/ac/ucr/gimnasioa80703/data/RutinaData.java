@@ -52,6 +52,8 @@ public class RutinaData extends BaseData {
                 stmtItemMedida.setInt(2, itemMedidaActual.getMedidaCorporal().getCodMedida());
                 stmtItemMedida.setFloat(3, itemMedidaActual.getValorMedida());
                 
+                System.out.println(itemMedidaActual.toString());
+                
                 stmtItemMedida.executeUpdate();
                 
             }//for-each

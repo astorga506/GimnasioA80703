@@ -38,4 +38,14 @@ public class ItemRutinaMedida {
         this.medidaCorporal = medidaCorporal;
     }
     
+    public String toString(){
+        
+        return "Valor medida: "+ String.valueOf(valorMedida)+
+               "Codigo Medida: "+String.valueOf(medidaCorporal.getCodMedida())+
+               "Nombre Medida Medida: "+medidaCorporal.getNombreMedida()+
+               "Unidad Medida: "+medidaCorporal.getUnidadMedida() ;
+        
+    }
+    
+    
 }
