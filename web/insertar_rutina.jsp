@@ -20,11 +20,9 @@
 
             function incluirMedida() {
                 document.getElementById("metodo").value = "incluirMedida";
-                document.getElementById("tabla").innerHTML = '<strong Hola mundo/>';
             }
             function salvar() {
                 document.getElementById("metodo").value = "salvar";
-                alert("salvar");
             }
         </script>
         <strong><bean:message key="label.creacion.rutina"/></strong><br><br>
@@ -61,11 +59,11 @@
                     <td>Unidad</td> 
                     <td>Valor</td> 
                 </tr> 
-                <logic:iterate name="itemesMedidas" id="itemActual">
+                <logic:iterate name="itemesRutinaMedida" id="itemActual">
                     <tr>
-                        <td>value="${itemActual.nombreMedida}"</td>
-                        <td>value="${itemActual.unidadMedida}"</td>
-                        <td>value="${itemActual.valorMedida}"</td>
+                        <td>${itemActual.medidaCorporal.nombreMedida}</td>
+                        <td>${itemActual.medidaCorporal.unidadMedida}</td>
+                        <td>${itemActual.valorMedida}</td>
                     </tr> 
                 </logic:iterate>
             </table>

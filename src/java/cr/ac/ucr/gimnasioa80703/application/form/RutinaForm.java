@@ -26,7 +26,6 @@ public class RutinaForm extends org.apache.struts.action.ActionForm {
     private String apellidosCliente;    
     private String objetivoCliente;
     private String enfermadadesCliente;
-    private LinkedList<ItemRutinaMedida> itemesRutinaMedida;
 
     public RutinaForm() {
     }
@@ -67,14 +66,6 @@ public class RutinaForm extends org.apache.struts.action.ActionForm {
         this.enfermadadesCliente = enfermadadesCliente;
     }
 
-    public LinkedList<ItemRutinaMedida> getItemesRutinaMedida() {
-        return itemesRutinaMedida;
-    }
-
-    public void setItemesRutinaMedida(LinkedList<ItemRutinaMedida> itemesRutinaMedida) {
-        this.itemesRutinaMedida = itemesRutinaMedida;
-    }
-
     public void setCodCliente(int codCliente) {
         this.codCliente = codCliente;
     }
@@ -113,7 +104,7 @@ public class RutinaForm extends org.apache.struts.action.ActionForm {
             errors.add("Errores", new ActionMessage("error.enfermades.no.ingresadas"));
         }
         
-        if(this.valorMedida <= 0.0){
+        if(this.valorMedida < 0.0){
             errors.add("Errores", new ActionMessage("error.valor.medida.invalido"));
         }
         

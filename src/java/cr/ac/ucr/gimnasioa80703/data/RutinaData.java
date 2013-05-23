@@ -42,9 +42,7 @@ public class RutinaData extends BaseData {
 
             rutina.setCodRutina(stmtRutina.getInt(1));
             rutina.setFechaRenovacion(stmtRutina.getDate(3));
-            
-            System.out.println(rutina.getCodRutina());
-            
+                        
             for (ItemRutinaMedida itemMedidaActual : rutina.getItemesRutinaMedida()) {
                 
                 String updateItemMedida = "{CALL sp_insertar_item_medida(?,?,?)}";
