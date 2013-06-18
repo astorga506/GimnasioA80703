@@ -25,17 +25,33 @@
     </global-forwards>
 
     <action-mappings>
-        <action input="/eliminar_cliente.jsp" name="ClienteForm" parameter="metodo"
-                path="/eliminarCliente" scope="request" validate="false"
+        <action input="/eliminar_cliente.jsp" 
+                name="ClienteForm" 
+                parameter="metodo"
+                path="/eliminarCliente" 
+                scope="request" 
+                validate="false"
                 type="cr.ac.ucr.gimnasioa80703.application.action.EliminarClienteAction"/>
-        <action input="/editar_cliente.jsp" name="ClienteForm" parameter="metodo" 
-                path="/editarCliente" scope="request" validate="false"
+        <action input="/editar_cliente.jsp" 
+                name="ClienteForm" 
+                parameter="metodo" 
+                path="/editarCliente"
+                scope="request" 
+                validate="false"
                 type="cr.ac.ucr.gimnasioa80703.application.action.EditarClienteAction"/>
-        <action input="/insertar_rutina.jsp" name="RutinaForm" parameter="metodo" 
-                path="/insertarRutina" scope="request" validate="false"
+        <action input="/insertar_rutina.jsp" 
+                name="RutinaForm" 
+                parameter="metodo" 
+                path="/insertarRutina" 
+                scope="request" 
+                validate="false"
                 type="cr.ac.ucr.gimnasioa80703.application.action.InsetarRutinaAction"/>
-        <action input="/buscar_cliente.jsp" name="ClienteForm" parameter="metodo" 
-                path="/buscarCliente" scope="request" validate="false"
+        <action input="/buscar_cliente.jsp" 
+                name="ClienteForm" 
+                parameter="metodo" 
+                path="/buscarCliente" 
+                scope="request" 
+                validate="false"
                 type="cr.ac.ucr.gimnasioa80703.application.action.BuscarClienteAction"/>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     </action-mappings>

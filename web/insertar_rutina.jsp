@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%-- 
     Document   : insertar_rutina
     Created on : 30/04/2013, 08:14:54 PM
@@ -29,7 +30,7 @@
         <ul type="square">
             <html:messages id="error">
                 <li>${error}</li>
-            </html:messages>
+                </html:messages>
         </ul>        
         <html:form action="/insertarRutina" method="get">
             <input type="hidden" name="metodo" id="metodo">
@@ -58,20 +59,22 @@
             <input type="submit" 
                    value="<bean:message key="button.incluir.medida"/>" onclick="incluirMedida();">
             <br>
-            <table BORDER=1 WIDTH=300> 
-                <tr> 
-                    <td>Medida</td> 
-                    <td>Unidad</td> 
-                    <td>Valor</td> 
-                </tr> 
-                <logic:iterate name="itemesRutinaMedida" id="itemActual">
-                    <tr>
-                        <td>${itemActual.medidaCorporal.nombreMedida}</td>
-                        <td>${itemActual.medidaCorporal.unidadMedida}</td>
-                        <td>${itemActual.valorMedida}</td>
+            <logic:notEmpty name="itemesRutinaMedida">
+                <table BORDER=1 WIDTH=300> 
+                    <tr> 
+                        <td>Medida</td> 
+                        <td>Unidad</td> 
+                        <td>Valor</td> 
                     </tr> 
-                </logic:iterate>
-            </table>
+                    <logic:iterate name="itemesRutinaMedida" id="itemActual">
+                        <tr>
+                            <td>${itemActual.medidaCorporal.nombreMedida}</td>
+                            <td>${itemActual.medidaCorporal.unidadMedida}</td>
+                            <td>${itemActual.valorMedida}</td>
+                        </tr> 
+                    </logic:iterate>
+                </table>
+            </logic:notEmpty>
             <input type="submit" 
                    value="<bean:message key="button.insertar.rutina"/>" onclick="salvar();">
         </html:form>
