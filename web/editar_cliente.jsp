@@ -23,7 +23,7 @@
         <html:form action="/editarCliente" method="get">
             <input type="hidden" name="metodo" value="salvar">
             <bean:message key="label.codigo.cliente"/>
-                <html:text property="codCliente" value="${cliente.codCliente}"/><br>
+            <html:text property="codCliente" value="${cliente.codCliente}" readonly="true"/><br>
             <bean:message key="label.nombre.cliente"/>
                 <html:text property="nombreCliente" value="${cliente.nombreCliente}"/><br>
             <bean:message key="label.apellidos.cliente"/>

@@ -18,8 +18,6 @@ import java.util.LinkedList;
  */
 public class ClienteData extends BaseData{
     
-    private Cliente cliente;
-
     public ClienteData()throws SQLException{
     }
     

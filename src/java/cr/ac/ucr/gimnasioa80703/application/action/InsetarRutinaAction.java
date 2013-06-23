@@ -68,33 +68,34 @@ public class InsetarRutinaAction extends DispatchAction {
         RutinaForm rutinaForm = (RutinaForm) form;
         ActionErrors errors = rutinaForm.validate(mapping, request);
         ClienteBusiness clienteBus = new ClienteBusiness();
-
-        if (errors.isEmpty()) {
-            Rutina rutina = new Rutina();            
-            Cliente cliente = clienteBus.getCliente(rutinaForm.getCodCliente());
-            rutina.setFechaCreacion(new Date(new java.util.Date().getTime()));
-            rutina.setObjetivoCliente(rutinaForm.getObjetivoCliente());
-            rutina.setEnfermadadesCliente(rutinaForm.getEnfermadadesCliente());
-            rutina.setCliente(cliente);
-            rutina.setItemesRutinaMedida(this.itemesRutinaMedida);
-            RutinaBusiness rutinaBus = new RutinaBusiness();
-            try {
-                rutinaBus.insertar(rutina);
-                request.setAttribute("titulo", "titulo.insertar.rutina");
-                request.setAttribute("mensaje", "mensaje.exito.rutina.insertada");
-                return mapping.findForward(EXITO);
-
-            } catch (SQLException ex) {
-                request.setAttribute("titulo", "titulo.eliminar.cliente");
-                request.setAttribute("mensaje", "error.bd");
-                return mapping.findForward(NOEXITO);
-            }//try-catch
-
-        }//if-no hay errores
-        
+        if(itemesRutinaMedida.size() > 0){            
+            if (errors.isEmpty()) {
+                Rutina rutina = new Rutina();            
+                Cliente cliente = clienteBus.getCliente(rutinaForm.getCodCliente());
+                rutina.setFechaCreacion(new Date(new java.util.Date().getTime()));
+                rutina.setObjetivoCliente(rutinaForm.getObjetivoCliente());
+                rutina.setEnfermadadesCliente(rutinaForm.getEnfermadadesCliente());
+                rutina.setCliente(cliente);
+                rutina.setItemesRutinaMedida(this.itemesRutinaMedida);
+                RutinaBusiness rutinaBus = new RutinaBusiness();
+                try {
+                    rutinaBus.insertar(rutina);
+                    request.setAttribute("titulo", "titulo.insertar.rutina");
+                    request.setAttribute("mensaje", "mensaje.exito.rutina.insertada");
+                    return mapping.findForward(EXITO);
+                } catch (SQLException ex) {
+                    request.setAttribute("titulo", "titulo.eliminar.cliente");
+                    request.setAttribute("mensaje", "error.bd");                
+                    return mapping.findForward(NOEXITO);
+                }//try-catch
+            }//if-no hay errores               
+        }else{
+            errors.add("Errores", new ActionMessage("error.item.medida.no.ingresado"));
+        }//else      
         LinkedList<Cliente> clientes = new LinkedList<>();
         clientes.add(clienteBus.getCliente(rutinaForm.getCodCliente()));
-        request.setAttribute("clientes", clientes);
+        request.setAttribute("clientes", clientes);        
+        request.setAttribute("medidas", this.medidasCorporales);
                
         this.saveErrors(request, errors);
 

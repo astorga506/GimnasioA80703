@@ -27,10 +27,10 @@
             }
         </script>
         <strong><bean:message key="label.creacion.rutina"/></strong><br><br>
-        <ul type="square">
-            <html:messages id="error">
+        <ul type="square">            
+            <html:messages id="error">                  
                 <li>${error}</li>
-                </html:messages>
+            </html:messages>
         </ul>        
         <html:form action="/insertarRutina" method="get">
             <input type="hidden" name="metodo" id="metodo">

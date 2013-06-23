@@ -4,11 +4,7 @@
  */
 package cr.ac.ucr.gimnasioa80703.application.form;
 
-import cr.ac.ucr.gimnasioa80703.dominio.ItemRutinaMedida;
-import cr.ac.ucr.gimnasioa80703.dominio.MedidaCorporal;
-import java.util.LinkedList;
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
@@ -22,8 +18,6 @@ public class RutinaForm extends org.apache.struts.action.ActionForm {
     private int codCliente;
     private int codMedida; 
     private float valorMedida;
-    private String nombreCliente;
-    private String apellidosCliente;    
     private String objetivoCliente;
     private String enfermadadesCliente;
 
@@ -70,31 +64,15 @@ public class RutinaForm extends org.apache.struts.action.ActionForm {
         this.codCliente = codCliente;
     }
 
-    public String getNombreCliente() {
-        return nombreCliente;
-    }
-
-    public void setNombreCliente(String nombreCliente) {
-        this.nombreCliente = nombreCliente;
-    }
-
-    public String getApellidosCliente() {
-        return apellidosCliente;
-    }
-
-    public void setApellidosCliente(String apellidosCliente) {
-        this.apellidosCliente = apellidosCliente;
-    }
-   
-    /**
-     * This is the action called from the Struts framework.
-     *
-     * @param mapping The ActionMapping used to select this instance.
-     * @param request The HTTP Request we are processing.
-     * @return
-     */
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
+        if(this.codCliente <= 0){
+            errors.add("Errores", new ActionMessage("error.codigo.cliente.no.valido"));
+        }
+        
+        if(this.codMedida <= 0){
+            errors.add("Errores", new ActionMessage("error.codigo.medida.no.valido"));
+        }
         
         if(this.objetivoCliente == null || this.objetivoCliente.equalsIgnoreCase("")){
             errors.add("Errores", new ActionMessage("error.objetivo.no.ingresado"));
@@ -104,7 +82,7 @@ public class RutinaForm extends org.apache.struts.action.ActionForm {
             errors.add("Errores", new ActionMessage("error.enfermades.no.ingresadas"));
         }
         
-        if(this.valorMedida < 0.0){
+        if(this.valorMedida <= 0.0){
             errors.add("Errores", new ActionMessage("error.valor.medida.invalido"));
         }
         

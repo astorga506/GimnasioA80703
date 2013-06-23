@@ -17,7 +17,8 @@
         <h1><bean:message key="titulo.eliminar.cliente"/></h1>
         <html:form action="/eliminarCliente" method="get">
             <input type="hidden" name="metodo" value="eliminar">
-            <bean:message key="label.codigo.cliente"/><html:text property="codCliente" value="${cliente.codCliente}"/><br>
+            <bean:message key="label.codigo.cliente"/>
+            <html:text property="codCliente" value="${cliente.codCliente}" readonly="true"/><br>
             <bean:message key="label.nombre.cliente"/>${cliente.nombreCliente}<br>
             <bean:message key="label.apellidos.cliente"/>${cliente.apellidosCliente}<br>
             <input type="submit" value="<bean:message key="boton.eliminar.cliente"/>"/>
